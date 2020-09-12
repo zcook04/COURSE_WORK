@@ -1,0 +1,4 @@
+00_COURSEFILES
+NODE_MODULES
+*.env
+config
