@@ -108,9 +108,9 @@ win = 0
 lose = 0
 tie = 0
 while game_loop:
-    choice = initial_prompt(win, lose, tie)
+    players_choice = initial_prompt(win, lose, tie)
     computers_choice = random.randint(1, 3)
-    winner = eval_winner(choice, computers_choice)
+    winner = eval_winner(players_choice, computers_choice)
     if winner == 1:
         win += 1
     elif winner == 2:
@@ -118,5 +118,5 @@ while game_loop:
     else:
         tie += 1
 
-    show_result(choice, computers_choice, winner)
+    show_result(players_choice, computers_choice, winner)
     game_loop = keep_playing(win, lose, tie)
