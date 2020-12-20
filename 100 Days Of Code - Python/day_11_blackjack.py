@@ -20,8 +20,6 @@
 import random
 import os
 
-# pylint: disable anomalous-backslash-in-string
-
 logo = r"""
 .------.            _     _            _    _            _    
 |A_  _ |.          | |   | |          | |  (_)          | |   
