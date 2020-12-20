@@ -1,7 +1,7 @@
 import os
 from random import choice
 
-logo = """
+logo = r"""
     __  ___       __             
    / / / (_)___ _/ /_  ___  _____
   / /_/ / / __ `/ __ \/ _ \/ ___/
