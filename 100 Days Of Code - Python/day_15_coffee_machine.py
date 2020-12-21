@@ -44,12 +44,15 @@ def make_coffee():
         clear()
         return
     elif selection == 'report':
-        print_report()
+        print_report(money)
         make_coffee()
     elif selection == 'latte' or selection == 'espresso' or selection == 'cappuccino':
         ingredients = get_ingrediants(selection)
         payment = receive_payment(selection, ingredients)
-        money += payment
+        if payment == 0:
+            return
+        else:
+            money += payment
     else:
         clear()
         print('Please choose a valid coffee.\n\n')
@@ -89,6 +92,7 @@ def receive_payment(coffee_type, ingredients):
         print('Not enough money inserted.  Refunding money and resources.')
         for resource, val in ingredients.items():
             resources[resource] = resources[resource] + val
+        return 0
     else:
         change = round(total_entered - total_required, 2)
         print(
@@ -96,7 +100,7 @@ def receive_payment(coffee_type, ingredients):
         return total_required
 
 
-def print_report():
+def print_report(money):
     clear()
     print('---------------- REPORT --------------------')
     for resource, val in resources.items():
@@ -113,5 +117,16 @@ def get_selection():
     return selection
 
 
+def want_more_coffee():
+    more = input('Would you like more coffee? ("Yes" or "No")').lower()
+    if more == 'yes':
+        return True
+    else:
+        return False
+
+
 if __name__ == '__main__':
-    make_coffee()
+    want_coffee = True
+    while want_coffee:
+        make_coffee()
+        want_coffee = want_more_coffee()
