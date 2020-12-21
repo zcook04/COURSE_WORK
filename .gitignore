@@ -3,3 +3,7 @@ NODE_MODULES
 *.env
 config
 .vscode
+.jpg
+.jpeg
+.png
+.gif
