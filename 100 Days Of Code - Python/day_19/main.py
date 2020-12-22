@@ -15,13 +15,13 @@ screen = Screen()
 screen.setup(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 
-def get_bet():
+def get_bet() -> str:
     user_bet = screen.textinput(
         title="Make your bet", prompt="Which turtle will win the race? Enter a color:")
     return user_bet
 
 
-def get_turts(turtle_colors):
+def get_turts(turtle_colors: list[str]) -> list[Turtle]:
     turts = []
     for i, turt in enumerate(turtle_colors):
         color = turt
@@ -33,7 +33,7 @@ def get_turts(turtle_colors):
     return turts
 
 
-def position_turts(turtles):
+def position_turts(turtles: list[Turtle]) -> None:
     y_increment = (SCREEN_HEIGHT / (len(turtles)+1))
     starting_y = MIN_Y + y_increment
     starting_x = MIN_X
@@ -42,7 +42,7 @@ def position_turts(turtles):
         starting_y += y_increment
 
 
-def turts_race(turtles: list[Turtle]):
+def turts_race(turtles: list[Turtle]) -> str:
     winner = False
     while not winner:
         for t in turtles:
@@ -50,9 +50,10 @@ def turts_race(turtles: list[Turtle]):
             if t.xcor() >= (MAX_X - 5):
                 winner = t.color()[0]
                 return winner
+    return ''
 
 
-def check_bet(b: str, w: str):
+def check_bet(b: str, w: str) -> bool:
     '''b: bet w: winner.  Evaluates if bet == winner'''
     if b == w:
         return True
@@ -60,7 +61,7 @@ def check_bet(b: str, w: str):
         return False
 
 
-def start_race():
+def start_race() -> None:
     bet = get_bet()
     turts = get_turts(turtle_colors)
     position_turts(turts)
