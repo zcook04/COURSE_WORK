@@ -9,3 +9,4 @@ config
 *.gif
 imgs/
 imgs
+__pycache__
