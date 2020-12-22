@@ -8,3 +8,4 @@ config
 *.png
 *.gif
 imgs/
+imgs
