@@ -2,7 +2,7 @@
 
 * {
     box-sizing: border-box;
-
+    margin: 0;
 }
 
 body {
@@ -34,6 +34,7 @@ h1 {
     box-shadow: 1px 5px 18px 3px rgba(0,0,0,0.45);
     transform: translateX(400%);
     transition: transform 0.4s ease;
+    visibility: hidden;
 }
 
 .box:nth-of-type(even) {
@@ -41,5 +42,6 @@ h1 {
 }
 
 .box.show {
+    visibility: visible;
     transform: translateX(0)
 }
