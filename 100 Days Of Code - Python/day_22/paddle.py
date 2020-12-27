@@ -2,8 +2,9 @@ from turtle import Turtle
 
 
 class Paddle(Turtle):
-    def __init__(self):
+    def __init__(self, player_paddle):
         super().__init__()
+        self.init_paddle(player_paddle)
 
     def init_paddle(self, player):
         self.penup()
