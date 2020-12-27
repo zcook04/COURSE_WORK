@@ -25,33 +25,28 @@ screen.onkey(pc_paddle.go_up, 'Left')
 screen.onkey(pc_paddle.go_down, 'Right')
 
 
-sleep_time = .1
 game_on = True
 while game_on:
     screen.update()
     scoreboard.display()
-    time.sleep(sleep_time)
+    time.sleep(ball.move_speed)
     ball.start_moving()
 
     # Detect Paddle Collision With Ball
     if ball.distance(user_paddle) < 60 and ball.xcor() < -320 and ball.x_speed < 0:
         ball.bounce_x()
-        sleep_time -= .005
     elif ball.distance(pc_paddle) < 60 and ball.xcor() > 320 and ball.x_speed > 0:
         ball.bounce_x()
-        sleep_time -= .005
 
     # Detect Out Of Bounds
     if ball.xcor() >= 390:
         scoreboard.increase_score('left')
         ball.reset()
-        sleep_time = .1
         continue
 
     if ball.xcor() <= -390:
         scoreboard.increase_score('right"')
         ball.reset()
-        sleep_time = .1
         continue
 
 
