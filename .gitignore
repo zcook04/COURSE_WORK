@@ -10,3 +10,6 @@ config
 imgs/
 imgs
 __pycache__
+.cache
+dist
+db.json
